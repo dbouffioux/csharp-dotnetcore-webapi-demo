@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using test_dotnet_webapi.Dtos.Character;
 using test_dotnet_webapi.Models;
 using test_dotnet_webapi.Services.CharacterService;
 
 namespace test_dotnet_webapi.Controllers {
+    [Authorize]
     [ApiController]
     [Route ("[controller]")]
     public class CharacterController : ControllerBase {
@@ -33,7 +35,7 @@ namespace test_dotnet_webapi.Controllers {
         public async Task<IActionResult> UpdateCharacter (UpdateCharacterDto updateCharacter) {
             ServiceResponse<GetCharacterDto> response = await _characterService.UpdateCharacter (updateCharacter);
             if (response.Data == null) {
-                return NotFound(response);
+                return NotFound (response);
             }
             return Ok (response);
         }
@@ -42,7 +44,7 @@ namespace test_dotnet_webapi.Controllers {
         public async Task<IActionResult> DeleteCharacter (int id) {
             ServiceResponse<List<GetCharacterDto>> response = await _characterService.DeleteCharacter (id);
             if (response.Data == null) {
-                return NotFound(response);
+                return NotFound (response);
             }
             return Ok (response);
         }

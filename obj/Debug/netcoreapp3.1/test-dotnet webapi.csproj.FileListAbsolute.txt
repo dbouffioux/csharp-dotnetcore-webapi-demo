@@ -54,3 +54,11 @@ C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\ru
 C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\d.bouffioux.AFELIO\Afelio\test-dotnet webapi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
