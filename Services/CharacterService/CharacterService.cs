@@ -19,9 +19,9 @@ namespace test_dotnet_webapi.Services.CharacterService {
             _context = context;
         }
 
-        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacter () {
+        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacter (int userId) {
             ServiceResponse<List<GetCharacterDto>> response = new ServiceResponse<List<GetCharacterDto>> ();
-            List<Character> dbCharacters = await _context.Characters.ToListAsync();
+            List<Character> dbCharacters = await _context.Characters.Where(x => x.User.Id == userId).ToListAsync();
             response.Data = dbCharacters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
             return response;
         }
