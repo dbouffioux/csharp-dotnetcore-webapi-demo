@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace test_dotnet_webapi.Models
 {
     public class Character
@@ -11,5 +13,6 @@ namespace test_dotnet_webapi.Models
         public Weapon Weapon { get; set; }
         public RpgEnum Class { get; set; } = RpgEnum.Knight;
         public User User { get; set; }
+        public List<CharacterSkill> CharacterSkills { get; set; }
     }
 }

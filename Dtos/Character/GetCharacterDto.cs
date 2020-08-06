@@ -1,3 +1,4 @@
+using test_dotnet_webapi.Dtos.Weapon;
 using test_dotnet_webapi.Models;
 
 namespace test_dotnet_webapi.Dtos.Character
@@ -11,5 +12,6 @@ namespace test_dotnet_webapi.Dtos.Character
         public int Defense { get; set; } = 10;
         public int Intelligence { get; set; } = 10;
         public RpgEnum Class { get; set; } = RpgEnum.Knight;
+        public GetWeaponDto Weapon { get; set; }
     }
 }
