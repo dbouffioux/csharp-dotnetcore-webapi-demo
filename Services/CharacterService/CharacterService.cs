@@ -36,7 +36,10 @@ namespace test_dotnet_webapi.Services.CharacterService {
 
         public async Task<ServiceResponse<GetCharacterDto>> GetCharacterById (int id) {
             ServiceResponse<GetCharacterDto> response = new ServiceResponse<GetCharacterDto> ();
-            Character dbCharacter = await _context.Characters.FirstOrDefaultAsync(c => c.Id == id && c.User.Id == GetUserId());
+            Character dbCharacter = await _context.Characters
+                .Include(c => c.Weapon)
+                .Include(c => c.CharacterSkills).ThenInclude(cs => cs.Skill)
+                .FirstOrDefaultAsync(c => c.Id == id && c.User.Id == GetUserId());
             response.Data = _mapper.Map<GetCharacterDto>(dbCharacter);
             return response;
         }

@@ -54,6 +54,39 @@ namespace test_dotnet_webapi.Migrations
                     b.ToTable("Characters");
                 });
 
+            modelBuilder.Entity("test_dotnet_webapi.Models.CharacterSkill", b =>
+                {
+                    b.Property<int>("CharacterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SkillId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CharacterId", "SkillId");
+
+                    b.HasIndex("SkillId");
+
+                    b.ToTable("CharacterSkills");
+                });
+
+            modelBuilder.Entity("test_dotnet_webapi.Models.Skill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Damage")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Skills");
+                });
+
             modelBuilder.Entity("test_dotnet_webapi.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -104,6 +137,21 @@ namespace test_dotnet_webapi.Migrations
                     b.HasOne("test_dotnet_webapi.Models.User", "User")
                         .WithMany("Characters")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("test_dotnet_webapi.Models.CharacterSkill", b =>
+                {
+                    b.HasOne("test_dotnet_webapi.Models.Character", "Character")
+                        .WithMany("CharacterSkills")
+                        .HasForeignKey("CharacterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("test_dotnet_webapi.Models.Skill", "Skill")
+                        .WithMany("CharacterSkills")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("test_dotnet_webapi.Models.Weapon", b =>
