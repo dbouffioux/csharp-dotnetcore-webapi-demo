@@ -75,11 +75,44 @@ namespace test_dotnet_webapi.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("test_dotnet_webapi.Models.Weapon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CharacterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Damage")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CharacterId")
+                        .IsUnique();
+
+                    b.ToTable("Weapons");
+                });
+
             modelBuilder.Entity("test_dotnet_webapi.Models.Character", b =>
                 {
                     b.HasOne("test_dotnet_webapi.Models.User", "User")
                         .WithMany("Characters")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("test_dotnet_webapi.Models.Weapon", b =>
+                {
+                    b.HasOne("test_dotnet_webapi.Models.Character", "Character")
+                        .WithOne("Weapon")
+                        .HasForeignKey("test_dotnet_webapi.Models.Weapon", "CharacterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

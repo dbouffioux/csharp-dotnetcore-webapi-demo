@@ -21,13 +21,16 @@ namespace test_dotnet_webapi.Controllers {
         [AllowAnonymous]
         [HttpGet ("GetAll")]
         public async Task<IActionResult> Get () {
-            int userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            return Ok (await _characterService.GetAllCharacter (userId));
+            return Ok (await _characterService.GetAllCharacter ());
         }
 
         [HttpGet ("{id}")]
         public async Task<IActionResult> GetSingle (int id) {
-            return Ok (await _characterService.GetCharacterById (id));
+            ServiceResponse<GetCharacterDto> result = await _characterService.GetCharacterById (id);
+            if (result.Data == null) {
+                return NotFound (result);
+            }
+            return Ok (result);
         }
 
         [HttpPost]
