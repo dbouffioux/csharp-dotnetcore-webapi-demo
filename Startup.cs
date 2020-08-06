@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using test_dotnet_webapi.Data;
 using test_dotnet_webapi.Services.CharacterService;
 using test_dotnet_webapi.Services.CharacterSkillService;
+using test_dotnet_webapi.Services.FightService;
 using test_dotnet_webapi.Services.WeaponService;
 
 namespace test_dotnet_webapi {
@@ -44,6 +45,7 @@ namespace test_dotnet_webapi {
             services.AddScoped<ICharacterService, CharacterService> ();
             services.AddScoped<IWeaponService, WeaponService>();
             services.AddScoped<ICharacterSkillService, CharacterSkillService>();
+            services.AddScoped<IFightService, FightService>();
             
             // register repository
             services.AddScoped<IAuthRepository, AuthRepository> ();

@@ -19,6 +19,29 @@ namespace test_dotnet_webapi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("test_dotnet_webapi.Dtos.Skill.GetSkillDto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CharacterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Damage")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CharacterId");
+
+                    b.ToTable("GetSkillDto");
+                });
+
             modelBuilder.Entity("test_dotnet_webapi.Models.Character", b =>
                 {
                     b.Property<int>("Id")
@@ -29,7 +52,13 @@ namespace test_dotnet_webapi.Migrations
                     b.Property<int>("Class")
                         .HasColumnType("int");
 
+                    b.Property<int>("Defeats")
+                        .HasColumnType("int");
+
                     b.Property<int>("Defense")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fights")
                         .HasColumnType("int");
 
                     b.Property<int>("HitPoints")
@@ -45,6 +74,9 @@ namespace test_dotnet_webapi.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Victories")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -130,6 +162,13 @@ namespace test_dotnet_webapi.Migrations
                         .IsUnique();
 
                     b.ToTable("Weapons");
+                });
+
+            modelBuilder.Entity("test_dotnet_webapi.Dtos.Skill.GetSkillDto", b =>
+                {
+                    b.HasOne("test_dotnet_webapi.Models.Character", null)
+                        .WithMany("Skills")
+                        .HasForeignKey("CharacterId");
                 });
 
             modelBuilder.Entity("test_dotnet_webapi.Models.Character", b =>
