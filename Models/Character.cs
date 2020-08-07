@@ -13,7 +13,6 @@ namespace test_dotnet_webapi.Models {
         public RpgEnum Class { get; set; } = RpgEnum.Knight;
         public User User { get; set; }
         public List<CharacterSkill> CharacterSkills { get; set; }
-        public List<GetSkillDto> Skills { get; set; }
         public int Fights { get; set; }
         public int Victories { get; set; }
         public int Defeats { get; set; }
