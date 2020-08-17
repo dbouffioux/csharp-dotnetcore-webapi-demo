@@ -94,7 +94,7 @@ namespace test_dotnet_webapi.Services.CharacterService {
                 {
                     _context.Characters.Remove(character);
                     await _context.SaveChangesAsync();
-                    response.Data =  _context.Characters.Where(c => c.User.Id == GetUserId()).Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
+                    response.Data = _context.Characters.Where(c => c.User.Id == GetUserId()).Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
                 } else {
                     response.Success = false;
                     response.Message = "Character not found.";
